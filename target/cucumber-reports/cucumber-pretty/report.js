@@ -39,21 +39,21 @@ formatter.match({
   "location": "inscri.userOnHomepage()"
 });
 formatter.result({
-  "duration": 7864962500,
+  "duration": 8261890100,
   "status": "passed"
 });
 formatter.match({
   "location": "inscri.selectUsernameAndPassword()"
 });
 formatter.result({
-  "duration": 3763503400,
+  "duration": 2688116700,
   "status": "passed"
 });
 formatter.match({
   "location": "inscri.conncted()"
 });
 formatter.result({
-  "duration": 625026400,
+  "duration": 663908100,
   "status": "passed"
 });
 });

@@ -12,7 +12,7 @@ public class inscri {
     public static WebDriver driver;
     @Given("user on homepage")
     public void userOnHomepage() throws Throwable  {
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\Desktop\\HafsaDoc\\chromedriver_win322\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver","src/test/webdriver/chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://github.com/login");
