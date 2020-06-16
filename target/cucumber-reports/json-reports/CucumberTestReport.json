@@ -1,0 +1,64 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "line": 5,
+        "name": "add two numbers",
+        "description": "",
+        "id": "connection;add-two-numbers",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 7864962500,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "user on homepage",
+            "match": {
+              "location": "inscri.userOnHomepage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3763503400,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "select username and password",
+            "match": {
+              "location": "inscri.selectUsernameAndPassword()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 625026400,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "conncted",
+            "match": {
+              "location": "inscri.conncted()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 4,
+            "name": "@TFSample"
+          }
+        ]
+      }
+    ],
+    "name": "connection",
+    "description": "feature for testing TF Framework",
+    "id": "connection",
+    "keyword": "Feature",
+    "uri": "inscri.feature"
+  }
+]

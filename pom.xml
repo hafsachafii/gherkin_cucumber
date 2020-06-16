@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ashenlive</groupId>
+    <artifactId>awesome-bdd-with-cucumber</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <!-- Squash-TF-cucumber runner version used by the project -->
+        <ta.cucumber.runner.version>1.1.0-RELEASE</ta.cucumber.runner.version>
+        <!-- optional source encoding -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-api</artifactId>
+            <version>3.13.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>3.13.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-support</artifactId>
+            <version>3.13.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>1.2.5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-jvm-deps</artifactId>
+            <version>1.0.5</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>1.2.5</version>
+            <scope>compile</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.9.8</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>net.masterthought</groupId>
+            <artifactId>cucumber-reporting</artifactId>
+            <version>3.8.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.14.1</version>
+                <configuration>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>3.8.0</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>MyProjectName</projectName>  <!-- Replace with project name -->
+                            <outputDirectory>target/cucumber-reports/advanced-reports</outputDirectory>
+                            <cucumberOutput>target/cucumber-reports/json-reports</cucumberOutput>
+                            <buildNumber>1</buildNumber>
+                            <parallelTesting>false</parallelTesting>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Configuration of the Squash TA framework used by the project -->
+            <plugin>
+                <groupId>org.squashtest.ta.galaxia</groupId>
+                <artifactId>squash-tf-gherkin-maven-plugin</artifactId>
+                <version>${ta.cucumber.runner.version}</version>
+                <configuration>
+                    <featuresList>${ta.feature}</featuresList>
+                    <squashRoot>squash</squashRoot>
+                    <!-- DryRunOptions for dryrun goal only -->
+                    <additionnalDryRunChecks>true</additionnalDryRunChecks>
+
+                    <!-- Define exporters -->
+                    <gkexporters>
+                        <exporter
+                                implementation="org.squashtest.ta.commons.exporter.surefire.SurefireSuiteResultExporter">
+                            <jenkinsAttachmentMode>${ta.jenkins.attachment.mode}</jenkinsAttachmentMode>
+                        </exporter>
+
+                        <exporter
+                                implementation="org.squashtest.ta.gherkin.exporter.HtmlGherkinSuiteResultExporter" />
+
+                    </gkexporters>
+
+                    <!-- Define configurers -->
+                    <gkconfigurers>
+                        <configurer implementation="org.squashtest.ta.maven.TmCallBack">
+                            <!-- <tmCallBack> -->
+                            <endpointURL>${status.update.events.url}</endpointURL>
+                            <executionExternalId>${squash.ta.external.id}</executionExternalId>
+                            <jobName>${jobname}</jobName>
+                            <hostName>${hostname}</hostName>
+                            <endpointLoginConfFile>${squash.ta.conf.file}</endpointLoginConfFile>
+                            <reportBaseUrl>${ta.tmcallback.reportbaseurl}</reportBaseUrl>
+                            <jobExecutionId>${ta.tmcallback.jobexecutionid}</jobExecutionId>
+                            <reportName>${ta.tmcallback.reportname}</reportName>
+                            <!-- </tmCallBack> -->
+                        </configurer>
+                    </gkconfigurers>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Squash TA maven plugin repository -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>org.squashtest.plugins.release</id>
+            <name>squashtest.org</name>
+            <url>http://repo.squashtest.org/maven2/releases</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>
