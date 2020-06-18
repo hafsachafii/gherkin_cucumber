@@ -4,45 +4,69 @@
     "elements": [
       {
         "line": 5,
-        "name": "add two numbers",
+        "name": "Create request",
         "description": "",
-        "id": "connection;add-two-numbers",
+        "id": "create-request;create-request",
         "type": "scenario",
         "keyword": "Scenario",
         "steps": [
           {
             "result": {
-              "duration": 8261890100,
-              "status": "passed"
-            },
-            "line": 6,
-            "name": "user on homepage",
-            "match": {
-              "location": "inscri.userOnHomepage()"
-            },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 2688116700,
+              "duration": 52805982900,
               "status": "passed"
             },
             "line": 7,
-            "name": "select username and password",
+            "name": "user select url",
             "match": {
-              "location": "inscri.selectUsernameAndPassword()"
+              "location": "CreateDoc.userSelectUrl()"
             },
             "keyword": "Given "
           },
           {
             "result": {
-              "duration": 663908100,
+              "duration": 59200,
               "status": "passed"
             },
             "line": 8,
-            "name": "conncted",
+            "name": "user navigates to Login Page",
             "match": {
-              "location": "inscri.conncted()"
+              "location": "CreateDoc.userNavigatesToLoginPage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 52100,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "enters username and Password",
+            "match": {
+              "location": "CreateDoc.entersUsernameAndPassword()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 60900,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "user fill the form",
+            "match": {
+              "location": "CreateDoc.userFillTheForm()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 55700,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "verify the addition of the document",
+            "match": {
+              "location": "CreateDoc.verifyTheAdditionOfTheDocument()"
             },
             "keyword": "Then "
           }
@@ -55,10 +79,10 @@
         ]
       }
     ],
-    "name": "connection",
+    "name": "Create request",
     "description": "feature for testing TF Framework",
-    "id": "connection",
+    "id": "create-request",
     "keyword": "Feature",
-    "uri": "inscri.feature"
+    "uri": "createrequest.feature"
   }
 ]

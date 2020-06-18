@@ -2,30 +2,30 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="BDD Test Suite" duration-ms="12010" started-at="2020-06-16T01:47:16Z" finished-at="2020-06-16T01:47:28Z">
+  <suite name="BDD Test Suite" duration-ms="53511" started-at="2020-06-18T09:29:36Z" finished-at="2020-06-18T09:30:29Z">
     <groups>
       <group name="cucumber">
         <method signature="TestRunner.feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:TestRunner@1936f0f5]" name="feature" class="TestRunner"/>
       </group> <!-- cucumber -->
     </groups>
-    <test name="Login and Update Profile Test" duration-ms="12010" started-at="2020-06-16T01:47:16Z" finished-at="2020-06-16T01:47:28Z">
+    <test name="Login and Update Profile Test" duration-ms="53511" started-at="2020-06-18T09:29:36Z" finished-at="2020-06-18T09:30:29Z">
       <class name="TestRunner">
-        <test-method status="PASS" signature="setUpClass()[pri:0, instance:TestRunner@1936f0f5]" name="setUpClass" is-config="true" duration-ms="234" started-at="2020-06-16T02:47:16Z" finished-at="2020-06-16T02:47:16Z">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:TestRunner@1936f0f5]" name="setUpClass" is-config="true" duration-ms="471" started-at="2020-06-18T10:29:36Z" finished-at="2020-06-18T10:29:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:TestRunner@1936f0f5]" name="feature" duration-ms="11659" started-at="2020-06-16T02:47:17Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-06-16T02:47:28Z">
+        <test-method status="PASS" signature="feature(cucumber.api.testng.CucumberFeatureWrapper)[pri:0, instance:TestRunner@1936f0f5]" name="feature" duration-ms="52866" started-at="2020-06-18T10:29:36Z" description="Runs Cucumber Feature" data-provider="features" finished-at="2020-06-18T10:30:29Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[connection]]>
+                <![CDATA[Create request]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- feature -->
-        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:TestRunner@1936f0f5]" name="tearDownClass" is-config="true" duration-ms="47" started-at="2020-06-16T02:47:28Z" finished-at="2020-06-16T02:47:28Z">
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:TestRunner@1936f0f5]" name="tearDownClass" is-config="true" duration-ms="50" started-at="2020-06-18T10:30:29Z" finished-at="2020-06-18T10:30:29Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

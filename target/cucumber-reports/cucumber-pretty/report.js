@@ -1,16 +1,16 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("inscri.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("createrequest.feature");
 formatter.feature({
   "line": 1,
-  "name": "connection",
+  "name": "Create request",
   "description": "feature for testing TF Framework",
-  "id": "connection",
+  "id": "create-request",
   "keyword": "Feature"
 });
 formatter.scenario({
   "line": 5,
-  "name": "add two numbers",
+  "name": "Create request",
   "description": "",
-  "id": "connection;add-two-numbers",
+  "id": "create-request;create-request",
   "type": "scenario",
   "keyword": "Scenario",
   "tags": [
@@ -21,39 +21,63 @@ formatter.scenario({
   ]
 });
 formatter.step({
-  "line": 6,
-  "name": "user on homepage",
-  "keyword": "Given "
-});
-formatter.step({
   "line": 7,
-  "name": "select username and password",
+  "name": "user select url",
   "keyword": "Given "
 });
 formatter.step({
   "line": 8,
-  "name": "conncted",
+  "name": "user navigates to Login Page",
+  "keyword": "Given "
+});
+formatter.step({
+  "line": 9,
+  "name": "enters username and Password",
+  "keyword": "And "
+});
+formatter.step({
+  "line": 10,
+  "name": "user fill the form",
+  "keyword": "When "
+});
+formatter.step({
+  "line": 11,
+  "name": "verify the addition of the document",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "inscri.userOnHomepage()"
+  "location": "CreateDoc.userSelectUrl()"
 });
 formatter.result({
-  "duration": 8261890100,
+  "duration": 52805982900,
   "status": "passed"
 });
 formatter.match({
-  "location": "inscri.selectUsernameAndPassword()"
+  "location": "CreateDoc.userNavigatesToLoginPage()"
 });
 formatter.result({
-  "duration": 2688116700,
+  "duration": 59200,
   "status": "passed"
 });
 formatter.match({
-  "location": "inscri.conncted()"
+  "location": "CreateDoc.entersUsernameAndPassword()"
 });
 formatter.result({
-  "duration": 663908100,
+  "duration": 52100,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CreateDoc.userFillTheForm()"
+});
+formatter.result({
+  "duration": 60900,
+  "status": "passed"
+});
+formatter.match({
+  "location": "CreateDoc.verifyTheAdditionOfTheDocument()"
+});
+formatter.result({
+  "duration": 55700,
   "status": "passed"
 });
 });
